@@ -1,0 +1,229 @@
+{
+  "student_endpoints": {
+    "list_students": {
+      "endpoint": "GET /students",
+      "response_example": [
+        {
+          "id": "12345",
+          "name": "John Doe",
+          "department": "Computer Science",
+          "year": 2,
+          "email": "john.doe@example.com",
+          "onboarded_date": "2023-09-01T10:00:00Z",
+          "last_active": "2023-10-15T14:30:00Z"
+        },
+        {
+          "id": "67890",
+          "name": "Jane Smith",
+          "department": "Electrical Engineering",
+          "year": 3,
+          "email": "jane.smith@example.com",
+          "onboarded_date": "2022-08-15T09:30:00Z",
+          "last_active": "2023-10-14T16:45:00Z"
+        }
+      ]
+    },
+    "get_student": {
+      "endpoint": "GET /students/{student_id}",
+      "response_example": {
+        "id": "12345",
+        "name": "John Doe",
+        "department": "Computer Science",
+        "year": 2,
+        "email": "john.doe@example.com",
+        "onboarded_date": "2023-09-01T10:00:00Z",
+        "last_active": "2023-10-15T14:30:00Z"
+      }
+    },
+    "add_student": {
+      "endpoint": "POST /students",
+      "request_example": {
+        "name": "New Student",
+        "department": "Mathematics",
+        "year": 1,
+        "email": "new.student@example.com"
+      },
+      "response_example": {
+        "id": "54321",
+        "name": "New Student",
+        "department": "Mathematics",
+        "year": 1,
+        "email": "new.student@example.com",
+        "onboarded_date": "2023-10-16T11:20:00Z",
+        "last_active": "2023-10-16T11:20:00Z"
+      }
+    },
+    "update_student": {
+      "endpoint": "PUT /students/{student_id}",
+      "request_example": {
+        "name": "Updated Name",
+        "department": "Physics",
+        "year": 2,
+        "email": "updated.email@example.com"
+      },
+      "response_example": {
+        "id": "12345",
+        "name": "Updated Name",
+        "department": "Physics",
+        "year": 2,
+        "email": "updated.email@example.com",
+        "onboarded_date": "2023-09-01T10:00:00Z",
+        "last_active": "2023-10-16T13:45:00Z"
+      }
+    },
+    "delete_student": {
+      "endpoint": "DELETE /students/{student_id}",
+      "response_example": {
+        "message": "Student with ID 12345 has been deleted successfully"
+      }
+    }
+  },
+  "campus_information_endpoints": {
+    "get_cafeteria_timings": {
+      "endpoint": "GET /campus/cafeteria",
+      "response_example": {
+        "timings": {
+          "breakfast": "7:00 AM - 9:30 AM",
+          "lunch": "11:30 AM - 2:00 PM",
+          "dinner": "5:30 PM - 8:00 PM",
+          "weekend_brunch": "10:00 AM - 1:00 PM",
+          "weekend_dinner": "5:00 PM - 7:30 PM"
+        }
+      }
+    },
+    "get_library_hours": {
+      "endpoint": "GET /campus/library",
+      "response_example": {
+        "hours": {
+          "monday_to_friday": "8:00 AM - 10:00 PM",
+          "saturday": "9:00 AM - 6:00 PM",
+          "sunday": "12:00 PM - 8:00 PM",
+          "exam_period_extended_hours": "8:00 AM - 12:00 AM"
+        }
+      }
+    },
+    "get_event_schedule": {
+      "endpoint": "GET /campus/events",
+      "response_example": {
+        "events": [
+          {
+            "id": "evt001",
+            "name": "Freshman Orientation",
+            "date": "2023-08-25",
+            "time": "9:00 AM - 4:00 PM",
+            "location": "Main Auditorium",
+            "description": "Welcome event for new students"
+          },
+          {
+            "id": "evt002",
+            "name": "Career Fair",
+            "date": "2023-10-20",
+            "time": "10:00 AM - 3:00 PM",
+            "location": "Student Center",
+            "description": "Annual career fair with industry representatives"
+          },
+          {
+            "id": "evt003",
+            "name": "Hackathon",
+            "date": "2023-11-15",
+            "time": "9:00 AM - 9:00 PM",
+            "location": "Engineering Building",
+            "description": "24-hour coding competition"
+          }
+        ]
+      }
+    }
+  },
+  "analytics_endpoints": {
+    "get_total_students": {
+      "endpoint": "GET /analytics",
+      "response_example": {
+        "total_students": 1250,
+        "departments": {
+          "Computer Science": 320,
+          "Electrical Engineering": 280,
+          "Mechanical Engineering": 250,
+          "Civil Engineering": 200,
+          "Mathematics": 100,
+          "Physics": 100
+        }
+      }
+    },
+    "get_students_by_department": {
+      "endpoint": "GET /analytics?department=Computer Science",
+      "response_example": {
+        "department": "Computer Science",
+        "total_students": 320,
+        "year_distribution": {
+          "1": 85,
+          "2": 80,
+          "3": 75,
+          "4": 80
+        }
+      }
+    },
+    "get_recent_onboarded_students": {
+      "endpoint": "GET /analytics/recent-onboarded",
+      "response_example": {
+        "recent_students": [
+          {
+            "id": "12345",
+            "name": "John Doe",
+            "department": "Computer Science",
+            "onboarded_date": "2023-10-15T10:00:00Z"
+          },
+          {
+            "id": "23456",
+            "name": "Jane Smith",
+            "department": "Electrical Engineering",
+            "onboarded_date": "2023-10-14T11:30:00Z"
+          },
+          {
+            "id": "34567",
+            "name": "Bob Johnson",
+            "department": "Mathematics",
+            "onboarded_date": "2023-10-13T09:15:00Z"
+          }
+        ]
+      }
+    },
+    "get_active_students_last_7_days": {
+      "endpoint": "GET /analytics/active-students",
+      "response_example": {
+        "active_students": [
+          {
+            "id": "12345",
+            "name": "John Doe",
+            "department": "Computer Science",
+            "last_active": "2023-10-16T14:30:00Z"
+          },
+          {
+            "id": "23456",
+            "name": "Jane Smith",
+            "department": "Electrical Engineering",
+            "last_active": "2023-10-15T16:45:00Z"
+          },
+          {
+            "id": "34567",
+            "name": "Bob Johnson",
+            "department": "Mathematics",
+            "last_active": "2023-10-14T10:20:00Z"
+          }
+        ]
+      }
+    }
+  },
+  "communication_endpoints": {
+    "send_email": {
+      "endpoint": "POST /communication/email",
+      "request_example": {
+        "student_id": "12345",
+        "subject": "Important Announcement",
+        "body": "Dear student, this is to inform you about the upcoming event on campus."
+      },
+      "response_example": {
+        "message": "Email sent successfully to john.doe@example.com"
+      }
+    }
+  }
+}
